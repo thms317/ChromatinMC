@@ -14,8 +14,8 @@ import NucleosomeMC3 as nMC
 import POVutils as pov
 import FileIO3 as fileio
 
-default_step_file = 'C:\\Python27\\Lib\\site-packages\\helixmc\\data\\DNA_gau.npy'
-default_folder = 'E:\\users\\'
+default_step_file = 'PDBs\\DNA_gau.npy'
+default_folder = 'C:\\Users\\brouw\\Desktop\\ChromatinMC\\'
 kT = 41
 
 
@@ -78,13 +78,13 @@ def plot_energy(filename):
 
 
 def plot_step_params(filename, dataset, save=False, wait=0, plot_energy=True):
-    filename = change_extension(filename, 'xlsx')
+    filename = fileio.change_extension(filename, 'xlsx')
     sets, files, _ = contents_xlsx(filename)
     if dataset == -1:
         filename = sorted(files)[-1]
     else:
         filename = files[sets.index(dataset)]
-    dna = HelixPose.from_file(change_extension(filename, 'npz'))
+    dna = HelixPose.from_file(fileio.change_extension(filename, 'npz'))
 
     p0 = np.load(default_step_file)[0]
     sigma2 = np.load(default_step_file)[1:]
@@ -115,10 +115,10 @@ def plot_step_params(filename, dataset, save=False, wait=0, plot_energy=True):
 
     plt.tight_layout(pad=0.5, w_pad=0.5, h_pad=0.5)
     plt.draw()
-    if wait <> 0:
+    if wait != 0:
         plt.pause(wait)
     if save:
-        filename = change_extension(filename, '_step.jpg')
+        filename = fileio.change_extension(filename, '_step.jpg')
         plt.savefig(filename, dpi=600, format='jpg')
     return
 

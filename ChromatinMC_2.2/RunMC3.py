@@ -7,6 +7,8 @@ Created on Sat Feb 17 10:07:46 2018
 from __future__ import print_function
 import matplotlib as mpl
 
+xrange = 10
+
 try:
     mpl.use(u'TkAgg')
     mpl.interactive(False)
@@ -130,21 +132,21 @@ def main():
     pars.add('chirality', value=-1)
     pars.add('Unwrapped_bp', value=30)
     pars.add('face', value=1)
-    pars.add('g_wrap_kT', value=3)
+    pars.add('g_wrap_kT', value=3) # energy per contact point
 
     pars.add('NRL', value=197)
-    pars.add('fiber_start', value=1)
+    pars.add('fiber_start', value=1) # 0 is 1-start, 1 is 2-start
     pars.add('g_stack_kT', value=25)
 
     g_wrap_kT = pars['g_wrap_kT'].value
     g_stack_kT = pars['g_stack_kT'].value
 
     # Setup files and forces
-    filename = fileio.get_filename(incr=True, root='4x167')
+    filename = fileio.get_filename(incr=True, root='4x197')
     print(filename)
     n_step = 250
     n_substeps = 20
-    fmax_pN = 10
+    fmax_pN = 0.1 # 10
     fmin_pN = 0.1
     # forces = np.linspace(fmin_pN, fmax_pN, n_step / 2)
     forces = np.logspace(np.log10(fmin_pN), np.log10(fmax_pN), n_step / 2)
@@ -222,7 +224,6 @@ def main():
         fileio.create_mp4_pov(fileio.get_filename(sub=True, folder=True), origin_frame=0, reverse=False)
     except Exception, e:
         print(Exception, e)
-
 
 if __name__ == '__main__':
     main()

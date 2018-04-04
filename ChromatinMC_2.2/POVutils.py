@@ -18,7 +18,7 @@ from scipy import misc
 # ChromatinMC modules:
 import FileIO3 as fileio
 
-POVRAY_BINARY = ("C:\Program Files\POV-Ray\\v3.7\\bin\\pvengine64.exe"
+POVRAY_BINARY = ("C:\\Program Files\\POV-Ray\\v3.7\\bin\\pvengine64.exe"
                  if os.name == 'nt' else "C:\\Program Files\\POV-Ray\\v3.7\\bin\\pvengine64")
 
 

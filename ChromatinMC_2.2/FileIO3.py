@@ -234,7 +234,7 @@ def create_mp4_images(image_files, fps=5.0, delete=True, filename=None, reverse=
         for image in image_files:
             os.remove(image)
     out.release()
-    print 'Movie saved as:', filename
+    print('Movie saved as:', filename)
     return filename
 
 
@@ -245,15 +245,15 @@ def save_plot(data, ax_labels=None, grid=None, xrange=None, yrange=None, save=Tr
     plt.close()
     plt.figure(figsize=(4, 3))
     if not transpose:
-        xsel = data[0][data[3] <> 0]
-        ysel = data[1][data[3] <> 0]
+        xsel = data[0][data[3] != 0]
+        ysel = data[1][data[3] != 0]
         xunsel = data[0][data[3] == 0]
         yunsel = data[1][data[3] == 0]
         xline = data[0]
         yline = data[2]
     else:
-        xsel = data[1][data[3] <> 0]
-        ysel = data[0][data[3] <> 0]
+        xsel = data[1][data[3] != 0]
+        ysel = data[0][data[3] != 0]
         xunsel = data[1][data[3] == 0]
         yunsel = data[0][data[3] == 0]
         xline = data[2]

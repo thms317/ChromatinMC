@@ -22,7 +22,7 @@ import FileIO3 as fileio
 plt.interactive(False)
 np.set_printoptions(formatter={'float': '{: 0.1f}, '.format})
 
-pdb_source_dir = "E:\\Users\\Noort\\Surfdrive\\software\\Python\\2018\\ChromatinMC\\PDBs\\"
+pdb_source_dir = "PDBs\\"
 np.set_printoptions(formatter={'float': '{: 0.3f}'.format})
 
 
